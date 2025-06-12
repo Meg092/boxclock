@@ -11,8 +11,8 @@ class WeekLandView extends GetView<PageLogic> {
     return Scaffold(
       body: Center(
         child: Obx(
-          () => controller.keeling.value
-              ? const CircularProgressIndicator(color: Colors.blueAccent)
+          () => controller.rowe.value
+              ? const CircularProgressIndicator(color: Colors.white)
               : buildError(),
         ),
       ),
@@ -26,7 +26,7 @@ class WeekLandView extends GetView<PageLogic> {
         children: [
           IconButton(
             onPressed: () {
-              controller.brnyj();
+              controller.qeld();
             },
             icon: const Icon(
               Icons.restart_alt,

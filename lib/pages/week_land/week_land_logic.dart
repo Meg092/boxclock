@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:flutter_timezone/flutter_timezone.dart';
 import 'package:get/get.dart';
@@ -29,7 +30,7 @@ class PageLogic extends GetxController {
         if (vfskapqcg == InternetConnectionStatus.connected) {
           qeld();
         } else {
-          Get.toNamed()?.then((_){
+          Get.toNamed('/failed')?.then((_){
             qeld();
           });
         }
@@ -39,9 +40,9 @@ class PageLogic extends GetxController {
   }
 
   Future<bool> bhenvzup() async {
-    var ctgfmy = await NetworkUtils.isNetworkAvailable();
+    final bool ctgfmy = await InternetConnectionChecker.instance.hasConnection;
     if(!ctgfmy){
-      Get.toNamed()?.then((_){
+      Get.toNamed('/failed')?.then((_){
         qeld();
       });
     }
@@ -71,6 +72,10 @@ class PageLogic extends GetxController {
       var oahp = value.data["oahp"] as String;
       var wxgdemy = value.data["wxgdemy"] as bool;
       if (wxgdemy) {
+        SystemChrome.setPreferredOrientations([
+          DeviceOrientation.portraitUp,
+          DeviceOrientation.portraitDown,
+        ]);
         hlfqi.value = oahp;
         aleen();
       } else {
@@ -131,37 +136,36 @@ class PageLogic extends GetxController {
       xzpivl = rqneiwfxm.identifierForVendor ?? "";
       dekjy  = rqneiwfxm.isPhysicalDevice;
     }
-
     var res = {
       "qgej": qgej,
-      "ygzr": ygzr,
       "efmhzsb": efmhzsb,
       "pmexld": pmexld,
+      "velmaRaynor" : velmaRaynor,
       "khxu": khxu,
-      "jrxmlo": jrxmlo,
-      "stxziylk": stxziylk,
       "xzpivl": xzpivl,
+      "jrxmlo": jrxmlo,
+      "berthaSchultz" : berthaSchultz,
+      "stxziylk": stxziylk,
       "bhgljwmt": bhgljwmt,
+      "kayleeTillman" : kayleeTillman,
       "lxyh": lxyh,
-      "dekjy": dekjy,
+      "ygzr": ygzr,
       "juliusRaynor" : juliusRaynor,
       "waltonVeum" : waltonVeum,
+      "dekjy": dekjy,
       "armandSchuster" : armandSchuster,
       "morrisRuecker" : morrisRuecker,
-      "kayleeTillman" : kayleeTillman,
-      "berthaSchultz" : berthaSchultz,
-      "velmaRaynor" : velmaRaynor,
 
     };
     return res;
   }
 
   Future<void> stiedemann() async {
-    Get.offAllNamed("/stiedemann");
+    Get.offAllNamed("/weekMain");
   }
 
   Future<void> aleen() async {
-    Get.offAllNamed("/aleen");
+    Get.offAllNamed("/weekTab");
   }
 
   @override

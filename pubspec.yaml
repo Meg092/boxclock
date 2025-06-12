@@ -71,14 +71,14 @@ dev_dependencies:
 
   # flutter pub run flutter_launcher_icons:main
 flutter_launcher_icons:
-  image_path: "assets/launcher.webp"
+  image_path: "assets/time.png"
   android: true
   ios: true
   web:
     generate: true
-    image_path: "assets/launcher.webp"
-    background_color: "#FFFFFF"
-    theme_color: "#FFFFFF"
+    image_path: "assets/time.png"
+    background_color: "#000000"
+    theme_color: "#000000"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
